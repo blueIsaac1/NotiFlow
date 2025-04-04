@@ -10,7 +10,7 @@
 - utils/ → Armazena funções auxiliares, como envio de webhooks.
 
 # Tecnologia
-- Back-end: FastAPI para gerenciar usuários e fluxos.
-- Front-end: React para o painel de controle.
+- Back-end: FastAPI para gerenciar usuários e fluxos. Hospedado no Render.
+- Front-end: Tailwind CSS para o painel de controle. Hospedado no Vercel
 - Banco de Dados: Supabase para armazenar mensagens/logs/dados.
 - n8n: Para criar e gerenciar os fluxos de automação.

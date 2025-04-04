@@ -1,2 +1,67 @@
 __pycache__
 .env
+# ========================================
+# Python / FastAPI / Poetry
+# ========================================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.log
+*.sqlite3
+.env
+.env.*
+.mypy_cache/
+.pytest_cache/
+.cache/
+dist/
+build/
+*.egg-info/
+poetry.lock
+.DS_Store
+
+# VSCode settings
+.vscode/
+
+# ========================================
+# Node / React / Vite / Tailwind
+# ========================================
+node_modules/
+dist/
+build/
+.vite/
+.next/
+out/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp*
+.cache/
+coverage/
+.env.local
+.env.development
+.env.production
+.env.test
+
+# Tailwind generated files
+tailwind.config.js
+postcss.config.js
+
+# ========================================
+# n8n local files (caso use com Docker)
+# ========================================
+.n8n/
+docker-compose.override.yml
+
+# n8n SQLite (se usar banco local)
+n8n.sqlite
+n8n.sqlite-journal
+
+# ========================================
+# Outros
+# ========================================
+*.swp
+*.bak
+*.tmp
+*.old
+*.orig
