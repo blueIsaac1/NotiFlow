@@ -10,5 +10,5 @@ class NotificationRepository:
 
     def post_notifications(self, message, platform, user_id):
         return supabase.table("notifications").insert({
-            "id": str(uuid.uuid4()), "message": message, "platform": platform, "user_id": user_id
+            "id": str(uuid.uuid4()), "title": title, message": message, "platform": platform, "user_id": user_id
         }).execute().data

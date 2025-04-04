@@ -11,6 +11,6 @@ class NotificationService:
     def get_notification(self, id):
         return self.repository.get_notification(id)
     
-    def post_notifications(self, message, platform, user_id):
+    def post_notifications(self, title, message, platform, user_id):
         send_webhook_n8n(platform)
-        return self.repository.post_notifications(message, platform, user_id)
+        return self.repository.post_notifications(title, message, platform, user_id)

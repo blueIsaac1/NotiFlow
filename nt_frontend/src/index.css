@@ -1,10 +1,18 @@
+@import '@fontsource/inter';
+@import '@fontsource/sora';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   html {
-    font-family: system-ui, sans-serif;
+    @apply bg-background text-text;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Sora', system-ui, sans-serif;
   }
 }
 
@@ -17,5 +25,25 @@
   }
   .icon-lg {
     @apply h-6 w-6;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity;
+  }
+
+  .card {
+    @apply bg-card p-4 rounded-lg shadow-lg;
+  }
+
+  .text-accent {
+    @apply text-accent;
+  }
+
+  .text-error {
+    @apply text-error;
+  }
+
+  .text-success {
+    @apply text-success;
   }
 } 
