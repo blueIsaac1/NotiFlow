@@ -8,7 +8,7 @@ class NotificationRepository:
     def get_notification(self, id):
         return supabase.table("notifications").select("*").eq("id", str(id)).execute().data
 
-    def post_notifications(self, message, platform, user_id):
+    def post_notifications(self, title, message, platform, user_id):
         return supabase.table("notifications").insert({
-            "id": str(uuid.uuid4()), "title": title, message": message, "platform": platform, "user_id": user_id
+            "id": str(uuid.uuid4()), "title": title, "message": message, "platform": platform, "user_id": user_id
         }).execute().data
