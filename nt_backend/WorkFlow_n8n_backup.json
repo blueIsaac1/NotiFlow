@@ -1,0 +1,208 @@
+{
+  "name": "WorkFlow",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "notifications",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -340,
+        -120
+      ],
+      "id": "ba280d07-4c4e-468e-b8ca-24e660bc8c17",
+      "name": "Webhook",
+      "webhookId": "9fba9559-cd00-4c87-915e-f18505a351da"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.body.Platform }}",
+                    "rightValue": "Slack",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "1a13a6ef-31ca-468f-9648-63ebbe97c7b9"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Slack"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "2643def5-efb0-4aa7-a79c-18ad42fe0e74",
+                    "leftValue": "={{ $json.body.Platform }}",
+                    "rightValue": "Whatsapp",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Whatsapp"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "9942d496-3df3-4938-83b1-69558f671a8e",
+                    "leftValue": "={{ $json.body.Platform }}",
+                    "rightValue": "Gmail",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Gmail"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -100,
+        -120
+      ],
+      "id": "90b6d71c-592c-45a2-a85a-cfba1e4fb661",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "otherOptions": {}
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        120,
+        -320
+      ],
+      "id": "2221a9ad-eade-4314-8fc6-b8aae4408819",
+      "name": "Slack",
+      "webhookId": "30a13541-1b04-4ba9-9e1b-1cc8d0808f7d",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        120,
+        -120
+      ],
+      "id": "08ec3321-bbc2-4b99-87ff-96b838719733",
+      "name": "WhatsApp Business Cloud",
+      "webhookId": "e4b8ebc3-adb7-4940-bf46-e0c39cd66495",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        120,
+        80
+      ],
+      "id": "59d2b94a-94f1-4b04-96cc-da1e8e8af501",
+      "name": "Gmail",
+      "webhookId": "ab624cef-73fa-4d02-a433-4b5e785e0f2b",
+      "disabled": true
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Slack",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "WhatsApp Business Cloud",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Gmail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "4e0c1650-f7d7-4c54-88f5-f6c10defee69",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "d738fa6fe771f44214a46c57e09bf771638bc50da61576bcf15cd09fba11f41b"
+  },
+  "id": "kuq698eCb0Ne999X",
+  "tags": []
+}
