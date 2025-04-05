@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from nt_backend.app.routes import notifications, users
+from nt_backend.app.routes import notifications, users, auth, signup
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(redirect_slashes=False )
@@ -20,3 +20,5 @@ app.add_middleware(
 
 app.include_router(notifications.router, prefix = "/notifications", tags=["Notifications"])
 app.include_router(users.router, prefix = "/users", tags=["Users"])
+app.include_router(auth.router, prefix = "/auth", tags=["Auth"])
+app.include_router(signup.router, prefix = "/signup", tags=["SignUp"])
