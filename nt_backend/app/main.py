@@ -1,6 +1,7 @@
-from fastapi import FastAPI
-from nt_backend.app.routes import notifications, users, auth, signup
-from fastapi.middleware.cors import CORSMiddleware
+from fastapi import FastAPI, Depends # type: ignore
+from nt_backend.app.routes import notifications, users, groups, signin, signup, me
+from nt_backend.app.utils.get_token import get_token
+from fastapi.middleware.cors import CORSMiddleware # type: ignore
 
 app = FastAPI(redirect_slashes=False )
 
@@ -17,8 +18,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.include_router(notifications.router, prefix = "/notifications", tags=["Notifications"], dependencies=[Depends(get_token)])
+app.include_router(users.router, prefix = "/users", tags=["Users"], dependencies=[Depends(get_token)])
+app.include_router(groups.router, prefix = "/groups", tags=["Groups"], dependencies=[Depends(get_token)])
 
-app.include_router(notifications.router, prefix = "/notifications", tags=["Notifications"])
-app.include_router(users.router, prefix = "/users", tags=["Users"])
-app.include_router(auth.router, prefix = "/auth", tags=["Auth"])
-app.include_router(signup.router, prefix = "/signup", tags=["SignUp"])
+app.include_router(signin.router, prefix = "/signin", tags=["SignIn"])
+app.include_router(signup.router, prefix = "/signup", tags=["SingUp"])
+app.include_router(me.router, prefix = "/me", tags=["Me"])

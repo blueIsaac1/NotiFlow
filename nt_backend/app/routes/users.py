@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends # type: ignore
 from nt_backend.app.services.user_service import UserService
 
 router = APIRouter()

@@ -1,5 +1,4 @@
 from nt_backend.app.repositories.user_repository import UserRepository
-from nt_backend.app.utils.webhook import send_webhook_n8n
 
 class UserService:
     def __init__(self):

@@ -18,3 +18,13 @@
 - id dos usuario(s) do grupo (id)
 - Nome do grupo
 - Setor do grupo
+
+
+## Features
+- Login
+    - Adicionar sessão local no front-end para armazernar cookie/token de login do usuario
+    - Verificar se o email do usuario está verificado antes de fazer login ou adicionar tratamento de erros
+    - Tratamento de erros
+    - Atualizar as rotas (users, notifications)
+    - Add rotas (group)
+- 

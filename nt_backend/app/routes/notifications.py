@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends # type: ignore
 from nt_backend.app.services.notification_service import NotificationService
 
 router = APIRouter()

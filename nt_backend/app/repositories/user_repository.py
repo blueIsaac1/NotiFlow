@@ -1,5 +1,4 @@
 from nt_backend.app.db.supabase import supabase
-import uuid
 
 class UserRepository:
     def get_users(self):
