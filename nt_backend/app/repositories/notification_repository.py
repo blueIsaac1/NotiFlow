@@ -3,7 +3,7 @@ import uuid
 
 class NotificationRepository:
     def get_notification_by_owner(self, owner_id):
-        return supabase.table("notifications").select("*").eq("id", owner_id).execute().data
+        return supabase.table("notifications").select("*").eq("owner_notification", owner_id).execute().data
         # for notification in response:
         #     all_notifications = []
         #     all_notifications.append(notification)
