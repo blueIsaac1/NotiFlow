@@ -5,12 +5,12 @@ class NotificationService:
     def __init__(self):
         self.repository = NotificationRepository()
 
-    def get_notifications(self):
-        return self.repository.get_notifications()
-
-    def get_notification(self, id):
-        return self.repository.get_notification(id)
+    def get_notification_by_owner(self, owner_id):
+        return self.repository.get_notification_by_owner(owner_id)
     
-    def post_notifications(self, title, message, platform, user_id):
+    def get_notification_by_id(self, id):
+        return self.repository.get_notification_by_id(id)
+
+    def post_notifications(self, title, message, platform, owner_id, group_notification_id, user_notification_id):
         send_webhook_n8n(platform)
-        return self.repository.post_notifications(title, message, platform, user_id)
+        return self.repository.post_notifications(title, message, platform, owner_id, group_notification_id, user_notification_id)

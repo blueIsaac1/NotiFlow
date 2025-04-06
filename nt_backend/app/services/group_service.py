@@ -4,11 +4,11 @@ class GroupService:
     def __init__(self):
         self.repository = GroupRepository()
 
-    def get_groups(self):
-        return self.repository.get_groups()
+    def get_groups_by_owner(self, owner_id):
+        return self.repository.get_groups(owner_id)
 
-    def get_group(self, id):
-        return self.repository.get_group(id)
+    def get_group(self, group_id):
+        return self.repository.get_group(group_id)
     
-    def post_group(self, title, message, platform, owner_nf_id, grou_this_nf_id):
-        return self.repository.post_group(title, message, platform, owner_nf_id, grou_this_nf_id)
+    def post_group(self, name_group, sector_group, dashbord_user_id):
+        return self.repository.post_group(name_group, sector_group, dashbord_user_id)

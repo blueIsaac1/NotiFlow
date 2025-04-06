@@ -2,18 +2,22 @@ from nt_backend.app.db.supabase import supabase
 import uuid
 
 class NotificationRepository:
-    def get_notifications(self):
-        return supabase.table("notifications").select("*").execute().data
+    def get_notification_by_owner(self, owner_id):
+        return supabase.table("notifications").select("*").eq("owner_id", owner_id).execute().data
+        # for notification in response:
+        #     all_notifications = []
+        #     all_notifications.append(notification)
+        # return all_notifications
 
-    def get_notification(self, id):
-        return supabase.table("notifications").select("*").eq("id", str(id)).execute().data
+    def get_notification_by_id(self, id):
+        return supabase.table("notifications").select("*").eq("id", id).execute().data
 
-    def post_notifications(self, title, message, platform, owner_nf_id, grou_this_nf_id):
+    def post_notifications(self, title, message, platform, owner_id, group_notification_id, user_notification_id):
         return supabase.table("notifications").insert({
-            "nf_id": str(uuid.uuid4()), 
             "title": title, 
             "message": message, 
             "platform": platform, 
-            "owner_nf_id": owner_nf_id,
-            "grou_this_nf_id": grou_this_nf_id
+            "owner_id": owner_id,
+            "group_notification_id": group_notification_id,
+            "user_notification_id": user_notification_id
         }).execute().data
