@@ -4,5 +4,5 @@ class SignUpService:
     def __init__(self):
         self.repository = SignUpRepository()
     
-    def sign_up(self, auth_email, auth_password): 
-        return self.repository.sign_up(auth_email, auth_password)
+    async def sign_up(self, auth_email, auth_password): 
+        return await self.repository.sign_up(auth_email, auth_password)

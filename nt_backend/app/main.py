@@ -18,9 +18,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(notifications.router, prefix = "/notifications", tags=["Notifications"], dependencies=[Depends(get_token)])
-app.include_router(users.router, prefix = "/users", tags=["Users"], dependencies=[Depends(get_token)])
-app.include_router(groups.router, prefix = "/groups", tags=["Groups"], dependencies=[Depends(get_token)])
+app.include_router(notifications.router, prefix = "/notifications", tags=["Notifications"])
+app.include_router(users.router, prefix = "/users", tags=["Users"])
+app.include_router(groups.router, prefix = "/groups", tags=["Groups"])
 
 app.include_router(signin.router, prefix = "/signin", tags=["SignIn"])
 app.include_router(signup.router, prefix = "/signup", tags=["SingUp"])

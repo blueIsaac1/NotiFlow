@@ -3,11 +3,11 @@ from nt_backend.app.services.user_service import UserService
 
 router = APIRouter()
 
-@router.get("/{group_id}")
+@router.get("/by_group/{group_id}")
 def get_users_by_group(group_id: str, service: UserService = Depends()):
     return service.get_users_by_group(group_id)
 
-@router.get("/{owner_id}")
+@router.get("/by_owner/{owner_id}")
 def get_users_by_owner(owner_id: str, service: UserService = Depends()):
     return service.get_users_by_owner(owner_id)
 
